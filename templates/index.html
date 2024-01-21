@@ -1,0 +1,47 @@
+<!doctype html>
+<header>
+
+    <title>My Directory</title>
+    <meta charset="UTF-8">
+
+    <style>
+        .block {
+            background-color: #aadaaf;
+        }
+
+        .list {
+            background-color: #e5acac;
+        }
+    </style>
+</header>
+
+<body>
+
+    <h1>{{data._id}}</h1>
+    <p><a href="{{data.url}}">{{data.url}}</a></p>
+
+    {% for body in data.bodies %}
+    <div class="block">
+        <p>{{body.pos}}</p>
+
+        {% for list in body.list %}
+
+        <div class="list">
+
+            <p><span class="degree">{{list.degree}}</span> <span class="guide">{{list.guide}}</span></p>
+            <p>{{list.define}}</p>
+
+            <ul>
+                {% for example in list.examples %}
+                <li>{{example}}</li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+    {% endfor %}
+
+</body>
